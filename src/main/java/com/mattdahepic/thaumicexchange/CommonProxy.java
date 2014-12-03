@@ -13,7 +13,10 @@ public class CommonProxy /*implements IGuiHandler */{
     }
 
     public void registerBlocksItems() {
+        //Blocks
         GameRegistry.registerBlock(ThaumicExchange.blockThaumicExchanger, "thaumicExchanger");
+        //Items
+        GameRegistry.registerItem(ThaumicExchange.itemThaumicAspector,"thaumicAspector");
     }
 
     public void addRecipes() {

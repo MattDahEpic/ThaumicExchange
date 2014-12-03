@@ -32,21 +32,17 @@ public class ThaumicExchange {
     public static Block blockThaumicExchanger;
 
     //items
-    public static Item thaumicAspecter;
+    public static Item itemThaumicAspector;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        //thaumic aspecter
-        thaumicAspecter = new GenericItem().setMaxStackSize(1).setCreativeTab(this.tabThaumicExchange).setUnlocalizedName("thaumicAspecter").setTextureName("thaumicexchange:thaumicAspecter");
-        GameRegistry.registerItem(thaumicAspecter,"thaumicAspecter");
-    }
+    public void preInit(FMLPreInitializationEvent event) {}
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         //Blocks
         blockThaumicExchanger = new BlockThaumicExchanger(Material.rock,"thaumicExchanger").setLightLevel(1.0F);
         //Items
-
+        itemThaumicAspector = new ItemAspector();
         //proxy.registerTiles();
         proxy.registerBlocksItems();
     }
@@ -58,8 +54,7 @@ public class ThaumicExchange {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
-            return ThaumicExchange.thaumicAspecter;
-            //return Item.getItemFromBlock(ThaumicExchange.blockThaumicExchanger);
+            return Item.getItemFromBlock(ThaumicExchange.blockThaumicExchanger);
         }
     };
 }
