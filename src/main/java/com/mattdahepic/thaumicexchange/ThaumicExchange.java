@@ -1,23 +1,19 @@
 package com.mattdahepic.thaumicexchange;
 
-import com.mattdahepic.thaumicexchange.block.BlockTextureData;
 import com.mattdahepic.thaumicexchange.block.BlockThaumicExchanger;
+import com.mattdahepic.thaumicexchange.item.ItemAspector;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.IIcon;
 
 @Mod(modid = ThaumicExchange.MODID, name = ThaumicExchange.NAME, version = ThaumicExchange.VERSION)
 public class ThaumicExchange {
