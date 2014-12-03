@@ -1,13 +1,13 @@
-package com.mattdahepic.thaumicexchange;
+package com.mattdahepic.thaumicexchange.block;
 
 import net.minecraft.util.IIcon;
 
-public class BlockTexture {
+public class BlockTextureData {
     private IIcon top;
     private IIcon side;
     private IIcon bottom;
 
-    public BlockTexture(IIcon top, IIcon side, IIcon bottom) {
+    public BlockTextureData(IIcon top, IIcon side, IIcon bottom) {
         this.top = top;
         this.side = side;
         this.bottom = bottom;
