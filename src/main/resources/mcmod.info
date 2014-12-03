@@ -1,0 +1,16 @@
+[
+{
+  "modid": "thaumicexchange",
+  "name": "Thaumic Exchange",
+  "description": "Equivalent Exchange for Thaumcraft, but not OP!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MattDahEpic"],
+  "credits": "Azanor for making Thaumcraft",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
