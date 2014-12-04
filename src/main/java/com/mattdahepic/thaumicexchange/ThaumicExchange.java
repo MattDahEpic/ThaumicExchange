@@ -20,8 +20,8 @@ import net.minecraft.block.material.Material;
 @Mod(modid = ThaumicExchange.MODID, name = ThaumicExchange.NAME, version = ThaumicExchange.VERSION)
 public class ThaumicExchange {
 
-    @Mod.Instance("ThaumicExchange")
-    public static ThaumicExchange instance = new ThaumicExchange();
+    @Mod.Instance("thaumicexchange")
+    public static ThaumicExchange instance;
 
     public static final String MODID = "thaumicexchange";
     public static final String VERSION = "0.1-alpha";

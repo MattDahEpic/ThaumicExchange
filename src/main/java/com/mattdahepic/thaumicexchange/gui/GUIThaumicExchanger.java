@@ -10,7 +10,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GuiThaumicExchanger extends TEGui<TETileEntity> {
-    private final ResourceLocation gui_texture = new ResourceLocation("thaumicexchange","textures/gui/thaumicExchanger.png");
+    private final ResourceLocation gui_texture = new ResourceLocation("thaumicexchange","textures/gui/guiThaumicExchanger.png");
 
     public GuiThaumicExchanger(InventoryPlayer inventoryPlayer, TileEntityThaumicExchanger tileEntity) {
         super (new ContainerThaumicExchanger(inventoryPlayer, tileEntity));
