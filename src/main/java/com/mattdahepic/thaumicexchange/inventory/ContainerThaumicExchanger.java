@@ -12,12 +12,8 @@ public class ContainerThaumicExchanger extends Container {
     private TileEntityThaumicExchanger tileEntity;
     public ContainerThaumicExchanger(InventoryPlayer inventoryPlayer, TileEntityThaumicExchanger tileEntity2) {
         this.tileEntity = tileEntity2;
-        //TODO: add template slot
-        for (int i = 0; i <= 9; i++) { //columns
-            for (int j = 0; j < 4; j++) { //rows
-                addSlotToContainer(new Slot(tileEntity,j+i*3,62+j*18,17+i*18));
-            }
-        }
+        addSlotToContainer(new Slot(tileEntity,0,59,36)); //input slot
+        addSlotToContainer(new Slot(tileEntity,1,109,36));
         this.bindPlayerInventory(inventoryPlayer);
     }
     @Override
