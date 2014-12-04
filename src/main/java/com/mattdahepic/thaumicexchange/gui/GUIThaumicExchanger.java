@@ -15,8 +15,8 @@ public class GuiThaumicExchanger extends TEGui<TETileEntity> {
     public GuiThaumicExchanger(InventoryPlayer inventoryPlayer, TileEntityThaumicExchanger tileEntity) {
         super (new ContainerThaumicExchanger(inventoryPlayer, tileEntity));
 
-        //this.xSize = ;
-        //this.ySize = ;
+        this.xSize = 174;
+        this.ySize = 239;
         //this.te = tileEntity;
     }
     @Override

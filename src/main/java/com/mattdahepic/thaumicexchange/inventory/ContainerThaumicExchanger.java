@@ -12,8 +12,41 @@ public class ContainerThaumicExchanger extends Container {
     private TileEntityThaumicExchanger tileEntity;
     public ContainerThaumicExchanger(InventoryPlayer inventoryPlayer, TileEntityThaumicExchanger tileEntity2) {
         this.tileEntity = tileEntity2;
-        addSlotToContainer(new Slot(tileEntity,0,59,36)); //input slot
-        addSlotToContainer(new Slot(tileEntity,1,109,36));
+        addSlotToContainer(new Slot(tileEntity,0,7,19)); //template slot
+        //input slots
+        //TODO: add for loops for these
+            //row 1
+                addSlotToContainer(new Slot(tileEntity,1,7,90));
+                addSlotToContainer(new Slot(tileEntity,2,25,90));
+                addSlotToContainer(new Slot(tileEntity,3,43,90));
+                addSlotToContainer(new Slot(tileEntity,4,61,90));
+            //row 2
+                addSlotToContainer(new Slot(tileEntity,5,7,108));
+                addSlotToContainer(new Slot(tileEntity,6,25,108));
+                addSlotToContainer(new Slot(tileEntity,7,43,108));
+                addSlotToContainer(new Slot(tileEntity,8,61,108));
+            //row 3
+                addSlotToContainer(new Slot(tileEntity,9,7,126));
+                addSlotToContainer(new Slot(tileEntity,10,25,126));
+                addSlotToContainer(new Slot(tileEntity,11,43,126));
+                addSlotToContainer(new Slot(tileEntity,12,61,126));
+        //output slots
+        //TODO: add loops for these
+            //row 1
+                addSlotToContainer(new Slot(tileEntity,13,97,90));
+                addSlotToContainer(new Slot(tileEntity,14,115,90));
+                addSlotToContainer(new Slot(tileEntity,15,133,90));
+                addSlotToContainer(new Slot(tileEntity,16,151,90));
+            //row 2
+                addSlotToContainer(new Slot(tileEntity,17,97,108));
+                addSlotToContainer(new Slot(tileEntity,18,115,108));
+                addSlotToContainer(new Slot(tileEntity,19,133,108));
+                addSlotToContainer(new Slot(tileEntity,20,151,108));
+            //row 3
+                addSlotToContainer(new Slot(tileEntity,21,97,126));
+                addSlotToContainer(new Slot(tileEntity,22,115,126));
+                addSlotToContainer(new Slot(tileEntity,23,133,126));
+                addSlotToContainer(new Slot(tileEntity,24,151,126));
         this.bindPlayerInventory(inventoryPlayer);
     }
     @Override
@@ -24,12 +57,12 @@ public class ContainerThaumicExchanger extends Container {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9,
-                        8 + j * 18, 84 + i * 18));
+                        7 + j * 18, 158 + i * 18));
             }
         }
 
         for (int i = 0; i < 9; i++) {
-            addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+            addSlotToContainer(new Slot(inventoryPlayer, i, 7 + i * 18, 216));
         }
     }
     @Override
