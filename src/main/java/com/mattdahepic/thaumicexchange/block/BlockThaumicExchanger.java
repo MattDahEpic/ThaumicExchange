@@ -74,5 +74,4 @@ public class BlockThaumicExchanger extends TEBlock implements IAspectContainer {
         return false;
         //TODO: remove this, its deprecated! returns false always because i dont want to override deprecated methods.
     }
-
 }

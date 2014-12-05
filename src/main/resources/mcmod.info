@@ -11,6 +11,8 @@
   "credits": "Azanor for making Thaumcraft and Pahimar for making EE2 (but not pahimar for not updating ee2 D:<)",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [
+  "Thaumcraft","Thaumcraft|API"
+  ]
 }
 ]

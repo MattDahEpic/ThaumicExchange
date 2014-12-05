@@ -1,7 +1,10 @@
 package com.mattdahepic.thaumicexchange.tileentity;
 
+import com.mattdahepic.thaumicexchange.block.BlockThaumicExchanger;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 public class TileEntityThaumicExchanger extends TETileEntity implements ISidedInventory{
     public TileEntityThaumicExchanger () {
@@ -40,5 +43,22 @@ public class TileEntityThaumicExchanger extends TETileEntity implements ISidedIn
             }
         }
         return false;
+    }
+    public boolean consumeItems() {
+        //boolean failed = false;
+        for (int i = 1; i <= 12; i++) { //for each slot 1-12
+            if (this.getStackInSlot(i) != null) { //if theres an item
+                AspectList aspectsList = new AspectList(this.getStackInSlot(i)); //find aspects on the item in the slot
+                Aspect[] aspectsListNames = aspectsList.getAspects(); //get the names of those aspects
+                for (int j = 0; j < aspectsListNames.length; j++) { //then, for every aspect
+                    int amountAspects = aspectsList.getAmount(aspectsListNames[j]); //get the amount
+                    BlockThaumicExchanger.aspectsInBlock.add(aspectsListNames[j], amountAspects); //add the amount for that aspect
+                    System.out.println("Consumed a " + this.getStackInSlot(i).getDisplayName() + " for " + amountAspects + aspectsListNames[j]+"."); //and tell me that you did
+                }
+                //TODO: actually consume the item.
+            }
+        }
+        //TODO: theoretically add a fail to convert condition
+        return true;
     }
 }

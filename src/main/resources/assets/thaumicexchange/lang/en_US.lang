@@ -1,3 +1,6 @@
 thaumicexchange.thaumicExchanger.name=Thaumic Exchanger
 itemGroup.thaumicExchange=Thaumic Exchange
 item.thaumicAspector.name=Thaumic Aspector
+tc.research_category.thaumicExchange=Thaumic Exchange
+tc.research_name.thaumicExchanger=Thaumic Exchanger
+tc.research_text.thaumicExchanger=Making Things from Other Things

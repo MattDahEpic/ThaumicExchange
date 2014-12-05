@@ -16,6 +16,9 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.ResourceLocation;
+import thaumcraft.api.research.ResearchCategories;
+import thaumcraft.api.research.ResearchItem;
 
 @Mod(modid = ThaumicExchange.MODID, name = ThaumicExchange.NAME, version = ThaumicExchange.VERSION)
 public class ThaumicExchange {
@@ -36,6 +39,13 @@ public class ThaumicExchange {
     //items
     public static Item itemThaumicAspector;
 
+    //research
+    public static ResearchCategories researchCategories;
+    public static ResourceLocation researchTabIcon = new ResourceLocation("thaumicexchange","/textures/research/researchTabIcon.png");
+    public static ResourceLocation researchBackground = new ResourceLocation("thaumicexchange","textures/research/researchBackground.png");
+    public static ResearchItem researchThaumicExchanger = new ResearchItem("thaumicExchanger","thaumicExchange",null,20,20,5,researchTabIcon);
+    //TODO: add aspects to item | change item location on screen
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {}
 
@@ -51,7 +61,12 @@ public class ThaumicExchange {
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {}
+    public void postInit(FMLPostInitializationEvent event) {
+        //add thaumcraft research tab
+        researchCategories.registerCategory("thaumicExchange",researchTabIcon,researchBackground);
+        researchCategories.addResearch(researchThaumicExchanger);
+        researchThaumicExchanger.setSpecial();
+    }
 
     public static CreativeTabs tabThaumicExchange = new CreativeTabs("thaumicExchange") {
         @Override
