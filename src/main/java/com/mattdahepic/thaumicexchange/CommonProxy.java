@@ -1,8 +1,10 @@
 package com.mattdahepic.thaumicexchange;
 
+import com.mattdahepic.thaumicexchange.crafting.AspectArray32All;
 import com.mattdahepic.thaumicexchange.tileentity.TileEntityThaumicExchanger;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.ItemStack;
 
 public class CommonProxy {
     public void registerRenderers() {
@@ -25,5 +27,9 @@ public class CommonProxy {
 
     public void addRecipes() {
         //TODO: add recipies
+    }
+
+    public void debugMessages() {
+
     }
 }
