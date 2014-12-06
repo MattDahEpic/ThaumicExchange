@@ -1,8 +1,9 @@
 package com.mattdahepic.thaumicexchange;
 
 import com.mattdahepic.thaumicexchange.block.BlockThaumicExchanger;
-import com.mattdahepic.thaumicexchange.crafting.AspectArray32All;
-import com.mattdahepic.thaumicexchange.crafting.ItemStackArrayVoidMetalForCrafting;
+import com.mattdahepic.thaumicexchange.crafting.AspectListPrimalsOnly;
+import com.mattdahepic.thaumicexchange.crafting.ItemStackArrayForCraftingThaumicExchanger;
+import com.mattdahepic.thaumicexchange.crafting.ThaumicAspectorRecipe;
 import com.mattdahepic.thaumicexchange.inventory.GuiHandler;
 import com.mattdahepic.thaumicexchange.item.ItemAspector;
 import cpw.mods.fml.common.SidedProxy;
@@ -22,9 +23,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.ThaumcraftApiHelper;
-import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
+import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
@@ -64,25 +65,29 @@ public class ThaumicExchange {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        ResearchPage[] researchPagesThaumicExchanger = new ResearchPage[2];
+        //thaumcraft research
+        ResearchPage[] researchPagesThaumicExchanger = new ResearchPage[3];
         ResourceLocation researchTabIcon = new ResourceLocation("thaumicexchange","/textures/research/researchTabIcon.png");
         ResourceLocation researchBackground = new ResourceLocation("thaumicexchange","textures/research/researchBackground.png");
-        ResearchItem researchThaumicExchanger = new ResearchItem("thaumicExchanger","thaumicExchange",new ThaumcraftApiHelper().getAllAspects(32),3,3,5,researchTabIcon);
-        //TODO: add aspects to item | change item location on screen
-        ResearchPage researchPageDescribeThaumicExchanger = new ResearchPage("During a dream you looked into the past to find a world filled with machines that turned nothing into something. You woke up with a start hoping to abuse this power. You have now recreated this concept using your thaumaturgic powers, but not as you had hoped. To create these items, you do have to supply the aptly named Thaumic Exchanger with something, that something being vis. You can pump it in with pipes, deliver with golems, transfer via nodes, or convert directly from items. The Thaumic Exchanger then converts those raw aspects into whatever you choose.");
-        InfusionRecipe infusionRecipeThaumicExchanger = new InfusionRecipe("thaumicExchanger",new ItemStack(blockThaumicExchanger,1),977,new ThaumcraftApiHelper().getAllAspects(32),new ItemStack(Blocks.stone,1),new ItemStackArrayVoidMetalForCrafting().getVoidMetalArray());
+        ResearchItem researchThaumicExchanger = new ResearchItem("thaumicExchanger","thaumicExchange",new AspectListPrimalsOnly().getPrimalsXEachList(32),3,3,5,researchTabIcon); //TODO: change item location on screen
+        //describe page
+        ResearchPage researchPageDescribeThaumicExchanger = new ResearchPage("During a dream you peered far into the past, only to find a world filled with mystical devices that turned nothing into something. You woke up with a start hoping to abuse this power. You have now recreated this concept using your thaumaturgic powers, but not exactly as you had hoped. To create these items, you have to supply the aptly named Thaumic Exchanger with something, that something being vis. You can pump it in with pipes, deliver with golems, transfer via nodes, or convert directly from items. The Thaumic Exchanger then converts those raw aspects into whatever you choose.");
+        //crafting of thaumic aspector
+        ShapedArcaneRecipe arcaneRecipeThaumicAspector = new ShapedArcaneRecipe("thaumicExchanger",new ItemStack(ThaumicExchange.itemThaumicAspector,1),new AspectListPrimalsOnly().getPrimalsXEachList(64),new ThaumicAspectorRecipe().getThaumicAspectorRecipeArray()); //TODO: add research for crafting this
+        ResearchPage researchPageThaumicAspector = new ResearchPage(arcaneRecipeThaumicAspector);
+        //infusion crafting of thaumic exchanger
+        InfusionRecipe infusionRecipeThaumicExchanger = new InfusionRecipe("thaumicExchanger",new ItemStack(blockThaumicExchanger,1),977,new AspectListPrimalsOnly().getPrimalsXEachList(512),new ItemStack(Blocks.stone,1),new ItemStackArrayForCraftingThaumicExchanger().getMaterialsArray());
         ResearchPage researchPageRecipieThaumicExchanger = new ResearchPage(infusionRecipeThaumicExchanger);
-        //add thaumcraft research tab
 
         ResearchCategories.registerCategory("thaumicExchange",researchTabIcon,researchBackground);
         researchThaumicExchanger.registerResearchItem();
         researchThaumicExchanger.setSpecial();
         researchPagesThaumicExchanger[0] = researchPageDescribeThaumicExchanger;
-        researchPagesThaumicExchanger[1] = researchPageRecipieThaumicExchanger;
+        researchPagesThaumicExchanger[1] = researchPageThaumicAspector;
+        researchPagesThaumicExchanger[2] = researchPageRecipieThaumicExchanger;
         researchThaumicExchanger.setPages(researchPagesThaumicExchanger);
         proxy.debugMessages();
     }
-
     public static CreativeTabs tabThaumicExchange = new CreativeTabs("thaumicExchange") {
         @Override
         @SideOnly(Side.CLIENT)
