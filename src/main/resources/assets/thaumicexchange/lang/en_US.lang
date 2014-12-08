@@ -4,3 +4,5 @@ item.thaumicAspector.name=Thaumic Aspector
 tc.research_category.thaumicExchange=Thaumic Exchange
 tc.research_name.thaumicExchanger=Thaumic Exchanger
 tc.research_text.thaumicExchanger=Making Things from Other Things
+tc.research_name.thaumicAspector=Thaumic Aspector
+tc.research_text.thaumicAspector=Crossing Sticks of Conversion

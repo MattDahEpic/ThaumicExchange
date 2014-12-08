@@ -1,5 +1,10 @@
 package com.mattdahepic.thaumicexchange;
 
+import com.mattdahepic.thaumicexchange.thaumcraft.recipes.ArcaneRecipeThaumicAspector;
+import com.mattdahepic.thaumicexchange.thaumcraft.recipes.InfusionRecipeThaumicExchanger;
+import com.mattdahepic.thaumicexchange.thaumcraft.research.ResearchTab;
+import com.mattdahepic.thaumicexchange.thaumcraft.research.ResearchThaumicAspector;
+import com.mattdahepic.thaumicexchange.thaumcraft.research.ResearchThaumicExchanger;
 import com.mattdahepic.thaumicexchange.tileentity.TileEntityThaumicExchanger;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -22,8 +27,15 @@ public class CommonProxy {
         System.out.println("Thaumic Aspecter Registered.");
     }
 
-    public void addRecipes() {
-        //TODO: add recipies
+    public void registerRecipes() {
+        ArcaneRecipeThaumicAspector.registerRecipe();
+        InfusionRecipeThaumicExchanger.registerRecipe();
+    }
+
+    public void registerReserch () {
+        ResearchTab.registerTab();
+        ResearchThaumicExchanger.registerResearch();
+        ResearchThaumicAspector.registerResearch();
     }
 
     public void debugMessages() {

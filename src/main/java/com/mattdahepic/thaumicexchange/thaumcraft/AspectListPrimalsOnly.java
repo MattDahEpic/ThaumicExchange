@@ -1,4 +1,4 @@
-package com.mattdahepic.thaumicexchange.crafting;
+package com.mattdahepic.thaumicexchange.thaumcraft;
 
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
