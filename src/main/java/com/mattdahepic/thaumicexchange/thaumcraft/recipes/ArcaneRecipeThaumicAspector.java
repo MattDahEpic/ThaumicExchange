@@ -4,15 +4,17 @@ import com.mattdahepic.thaumicexchange.ThaumicExchange;
 import com.mattdahepic.thaumicexchange.thaumcraft.AspectListPrimalsOnly;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ItemApi;
+import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 
 public class ArcaneRecipeThaumicAspector {
-    public static ShapedArcaneRecipe arcaneRecipeThaumicAspector;
+    //public static ShapedArcaneRecipe arcaneRecipeThaumicAspector;
     public ArcaneRecipeThaumicAspector() {
 
     }
     public static void registerRecipe () {
-        arcaneRecipeThaumicAspector = new ShapedArcaneRecipe("thaumicExchanger",new ItemStack(ThaumicExchange.itemThaumicAspector,1),new AspectListPrimalsOnly().getPrimalsXEachList(64),getRecipeArray()); //TODO: add research for crafting this
+        //arcaneRecipeThaumicAspector =
+        ThaumcraftApi.addArcaneCraftingRecipe("thaumicExchanger",new ItemStack(ThaumicExchange.itemThaumicAspector,1),new AspectListPrimalsOnly().getPrimalsXEachList(64),getRecipeArray());
     }
     private static Object[] getRecipeArray () {
         ItemStack nitor = new ItemApi().getItem("itemResource",1);
