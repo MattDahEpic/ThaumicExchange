@@ -13,7 +13,7 @@ public class InfusionRecipeThaumicExchanger {
     }
     public static void registerRecipe () {
         //infusionRecipeThaumicExchanger =
-        ThaumcraftApi.addInfusionCraftingRecipe("thaumicExchanger", new ItemStack(ThaumicExchange.blockThaumicExchanger, 1), 70, new AspectListPrimalsOnly().getPrimalsXEachList(512), new ItemStack(Blocks.stone, 1), getMaterialsArray());
+        ThaumcraftApi.addInfusionCraftingRecipe("thaumicExchanger", new ItemStack(ThaumicExchange.blockThaumicExchanger, 1), 70, new AspectListPrimalsOnly().getPrimalsXEachList(256), new ItemStack(Blocks.stone, 1), getMaterialsArray());
     }
     private static ItemStack[] getMaterialsArray() {
         ItemStack[] voidMetal = new ItemStack[8];

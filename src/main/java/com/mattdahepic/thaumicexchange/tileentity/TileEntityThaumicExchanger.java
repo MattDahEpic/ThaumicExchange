@@ -1,7 +1,5 @@
 package com.mattdahepic.thaumicexchange.tileentity;
 
-import com.mattdahepic.thaumicexchange.block.BlockThaumicExchanger;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -9,6 +7,8 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IAspectContainer;
 import thaumcraft.api.aspects.IEssentiaTransport;
+
+import javax.xml.bind.SchemaOutputResolver;
 
 public class TileEntityThaumicExchanger extends TETileEntity implements ISidedInventory, IEssentiaTransport, IAspectContainer {
     public static AspectList aspectsInBlock;
@@ -101,7 +101,7 @@ public class TileEntityThaumicExchanger extends TETileEntity implements ISidedIn
     }
     @Override
     public boolean canOutputTo(ForgeDirection face) {
-        return false;
+        return true;
     }
     @Override
     public void setSuction(Aspect aspect, int amount) {}
@@ -147,10 +147,36 @@ public class TileEntityThaumicExchanger extends TETileEntity implements ISidedIn
         return false;
     }
 
-    public AspectList getAspectsOfTemplate () {
+    public static AspectList getAspectsOfTemplate () {
         if (inventory[0] != null) {
             return new AspectList(new ItemStack(inventory[0].getItem()));
         }
         return null;
+    }
+    public static void produceItem() {
+        //we are PRODUCING items here matt! no need to write the consume code 3 different ways now.
+        AspectList aspectsOnTemplate = getAspectsOfTemplate();
+        int correctAspects = 0;
+        if (aspectsOnTemplate != null && aspectsInBlock != null) {
+            for (Aspect tag : aspectsOnTemplate.getAspects()) {
+                if (aspectsInBlock.getAmount(tag) >= aspectsOnTemplate.getAmount(tag) && aspectsInBlock.aspects.containsKey(tag)) {
+                    //aspect is true
+                    correctAspects++;
+                } else {
+                    //at least one of the aspects doesnt have enough!
+                    System.out.println("Not enough aspects to create item!");
+                    return;
+                }
+            }
+            if (correctAspects == aspectsOnTemplate.size()) {
+                for (Aspect tag:aspectsOnTemplate.getAspects()) {
+                    aspectsInBlock.reduce(tag,aspectsOnTemplate.getAmount(tag));
+                }
+                System.out.println("Item works and aspects are avaliable! Producing 1 item now.");
+                //TODO: produce item
+            }
+        } else {
+            System.out.println("No aspects in block! Oh Noes!");
+        }
     }
 }

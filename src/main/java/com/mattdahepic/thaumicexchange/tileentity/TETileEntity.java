@@ -1,6 +1,7 @@
 package com.mattdahepic.thaumicexchange.tileentity;
 
-import ibxm.Player;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -9,7 +10,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TETileEntity extends TileEntity implements ISidedInventory {
-    protected ItemStack[] inventory;
+    protected static ItemStack[] inventory;
     public TETileEntity () {
 
     }
@@ -123,5 +124,12 @@ public class TETileEntity extends TileEntity implements ISidedInventory {
     @Override
     public boolean canExtractItem(int slot, ItemStack stack, int side) {
         return true;
+    }
+
+    @Override
+    public void updateEntity() {
+        if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) {
+            TileEntityThaumicExchanger.produceItem();
+        }
     }
 }
