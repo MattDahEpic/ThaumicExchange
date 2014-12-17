@@ -173,7 +173,22 @@ public class TileEntityThaumicExchanger extends TETileEntity implements ISidedIn
                     aspectsInBlock.reduce(tag,aspectsOnTemplate.getAmount(tag));
                 }
                 System.out.println("Item works and aspects are avaliable! Producing 1 item now.");
-                //TODO: produce item
+                ItemStack newStack = null;
+                if (inventory[0] != null) {
+                    newStack = new ItemStack(inventory[0].getItem());
+                }
+                for (int i = 1; i <= inventory.length; i++) {
+                    if (inventory[i] == newStack) {
+                        newStack = inventory[i];
+                        newStack.stackSize++;
+                        return;
+                        //TODO: something about packets making sure to let the client know
+                    } else {
+                        inventory[i] = newStack;
+                        inventory[i].stackSize=1;
+                        //TODO: something about packets making sure to let the client know
+                    }
+                }
             }
         } else {
             System.out.println("No aspects in block! Oh Noes!");

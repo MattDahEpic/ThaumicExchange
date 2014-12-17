@@ -19,6 +19,4 @@ public class ItemAspector extends Item {
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("thaumicexchange:thaumicAspector");
     }
-
-    //TODO: on item use, do something.
 }

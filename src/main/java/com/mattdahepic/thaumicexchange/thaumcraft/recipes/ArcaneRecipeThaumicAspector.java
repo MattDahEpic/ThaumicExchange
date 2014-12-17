@@ -14,7 +14,7 @@ public class ArcaneRecipeThaumicAspector {
     }
     public static void registerRecipe () {
         //arcaneRecipeThaumicAspector =
-        ThaumcraftApi.addArcaneCraftingRecipe("thaumicExchanger",new ItemStack(ThaumicExchange.itemThaumicAspector,1),new AspectListPrimalsOnly().getPrimalsXEachList(32),getRecipeArray());
+        ThaumcraftApi.addArcaneCraftingRecipe("thaumicExchanger",new ItemStack(ThaumicExchange.itemThaumicAspector,1),new AspectListPrimalsOnly().getPrimalsXEachList(50),getRecipeArray());
     }
     private static Object[] getRecipeArray () {
         ItemStack nitor = new ItemApi().getItem("itemResource",1);
