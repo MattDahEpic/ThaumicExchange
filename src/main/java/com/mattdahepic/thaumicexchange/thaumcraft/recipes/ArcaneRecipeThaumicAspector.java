@@ -5,7 +5,6 @@ import com.mattdahepic.thaumicexchange.thaumcraft.AspectListPrimalsOnly;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.crafting.ShapedArcaneRecipe;
 
 public class ArcaneRecipeThaumicAspector {
     //public static ShapedArcaneRecipe arcaneRecipeThaumicAspector;
